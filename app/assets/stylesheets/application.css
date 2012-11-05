@@ -11,3 +11,49 @@
  *= require_self
  *= require_tree .
  */
+
+.signup_form_container, .signin_form_container { 
+  top: auto;
+  position: relative;
+  left: auto;
+  margin: 40px auto;
+  max-width: 100%;
+  width: 560px;
+  background: #FFF;
+  border: 1px solid #CCC;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  box-shadow: 0 1px 3px #CCC; 
+}
+
+.signup_form_container h2, .signin_form_container h2 {
+  line-height: 27px;
+  padding: 6px;
+}
+
+.form-header {
+  border-bottom: 2px solid #EEE;
+  padding: 10px 10px 0 10px;
+}
+
+.form-body {
+  max-height: 600px;
+  padding: 15px;
+  overflow-y: auto;
+}
+ 
+.form-footer {
+  padding: 14px 15px 15px;
+  margin-bottom: 0;
+  text-align: right;
+  background: whiteSmoke;
+  border-top: 1px solid #CCC;
+  border-radius: 0 0 10px 10px;
+  -moz-border-radius: 0 0 10px 10px;
+  -webkit-border-radius: 0 0 10px 10px;
+}
+ 
+.signup-form, .signin-form { 
+  margin-bottom: 0;
+}

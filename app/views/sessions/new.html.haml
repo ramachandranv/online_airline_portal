@@ -1,0 +1,23 @@
+.signin_form_container
+  .form-header
+    %h2 Sign in
+  = form_tag '/sessions', :method => 'post', :class => 'form-horizontal signin-form' do
+    .form-body
+      .control-group
+        = label_tag :email, "Email", :class => 'control-label'
+        .controls
+          = email_field_tag :email, nil, :class => 'input-xlarge'
+
+      .control-group
+        = label_tag :passord, "Password", :class => 'control-label'
+        .controls
+          = password_field_tag :password, nil, :class => 'input-xlarge'
+
+      .control-group
+        .controls
+          Dont have an account?
+          = link_to 'Sign up', user_signup_path
+          here
+
+    .form-footer
+      = submit_tag "Sign in", :class => 'btn btn-large btn-success' 

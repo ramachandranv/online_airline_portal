@@ -1,4 +1,18 @@
 OnlineAirlinePortal::Application.routes.draw do
+  root :to => "root#index"
+  
+  get '/users/signup' => "users#new", :as => :user_signup
+
+  get '/users/signin' => "sessions#new", :as => :user_signin
+
+  post '/sessions' => "sessions#create"
+
+  get "/dashboard" => "home#dashboard", :as => :user_dashboard
+
+  match '/users/signout' => "sessions#destroy", :as => :destroy_session
+
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

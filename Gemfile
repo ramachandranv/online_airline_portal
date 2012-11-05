@@ -8,6 +8,11 @@ gem 'rails', '3.2.8'
 gem 'execjs'
 gem 'therubyracer'
 gem 'thin'
+gem 'bcrypt-ruby', :require => 'bcrypt'  
+gem 'haml'
+gem 'haml-rails'
+gem "less-rails"  
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'mysql2'
