@@ -1,0 +1,18 @@
+Dear "#{@enquiry.airline_company}"
+
+%p
+  Here is the booking enquiry for the following details
+
+%table.table.table-striped
+  %tr
+    %th Airline
+    %th Source
+    %th Destination
+    %th Date
+    %th Passenger Details
+  %tr
+    %td= @enquiry.airline_company
+    %td= @enquiry.source
+    %td= @enquiry.destination
+    %td= @enquiry.date
+    %td= @enquiry.passenger_details

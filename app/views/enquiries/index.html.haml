@@ -11,10 +11,10 @@
     %th Source
     %th Destination
     %th Date
-  %tr
   - if @enquiries.present?
     - @enquiries.each do |enquiry|
-      %td= enquiry.airline_company
-      %td= enquiry.source
-      %td= enquiry.destination
-      %td= enquiry.date
+      %tr
+        %td= enquiry.airline_company
+        %td= enquiry.source
+        %td= enquiry.destination
+        %td= enquiry.date
