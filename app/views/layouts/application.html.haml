@@ -16,7 +16,7 @@
           = link_to "OnlineAirlineportal", root_path, :class => 'brand'
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Enquiries", '' if current_user
+              %li= link_to "Enquiries", enquiries_path if current_user
             %ul.nav.pull-right
               - if current_user
                 %li.dropdown

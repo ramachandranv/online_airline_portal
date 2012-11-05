@@ -1,0 +1,20 @@
+.enquiries
+  .control-buttons
+    = link_to "Create Enquiry", new_enquiry_path, :class => 'btn btn-primary'
+  %h2
+    My Enquiries
+  %hr
+
+%table.table.table-striped
+  %tr
+    %th Airline
+    %th Source
+    %th Destination
+    %th Date
+  %tr
+  - if @enquiries.present?
+    - @enquiries.each do |enquiry|
+      %td= enquiry.airline_company
+      %td= enquiry.source
+      %td= enquiry.destination
+      %td= enquiry.date
