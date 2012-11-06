@@ -70,7 +70,7 @@ module OnlineAirlinePortal
       :port                 => 587,
       :domain               => 'gmail.com',
       :user_name            => 'v.ramcool.ramachandran@gmail.com',
-      :password             => 'impression',
+      :password             => 'tuxworld',
       :authentication       => 'plain',
       :enable_starttls_auto => true  }
      
