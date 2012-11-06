@@ -12,12 +12,12 @@
         .control-group
           = f.label :source, :class => 'control-label'
           .controls
-            = f.text_field :source, :class => 'input-xlarge'
+            = f.select :source, options_for_select(['Chennai', 'Bangalore', 'Mumbai', 'Delhi']), :class => 'input-xlarge'
 
         .control-group
           = f.label :destination, :class => 'control-label'
           .controls
-            = f.text_field :destination, :class => 'input-xlarge'
+            = f.select :destination, options_for_select(['Chennai', 'Bangalore', 'Mumbai', 'Delhi']), :class => 'input-xlarge'
 
         .control-group
           = f.label :date, :class => 'control-label'

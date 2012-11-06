@@ -35,4 +35,6 @@ $(document).ready(function() {
     $('#enquiry_passenger_details').attr('value', JSON.stringify(passengers));
     $('#new_enquiry').submit();
   });
+
+  $('#enquiry_date').datepicker();
 });
