@@ -7,17 +7,17 @@
         .control-group
           = f.label :airline_company, :class => 'control-label'
           .controls
-            = f.select :airline_company, options_for_select(['Indian Airlines', 'Aerosource India Pvt Ltd']), :class => 'input-xlarge'
+            = f.text_field :airline_company, :class => 'input-xlarge'
 
         .control-group
           = f.label :source, :class => 'control-label'
           .controls
-            = f.select :source, options_for_select(['Chennai', 'Bangalore', 'Mumbai', 'Delhi']), :class => 'input-xlarge'
+            = f.text_field :source, :class => 'input-xlarge'
 
         .control-group
           = f.label :destination, :class => 'control-label'
           .controls
-            = f.select :destination, options_for_select(['Chennai', 'Bangalore', 'Mumbai', 'Delhi']), :class => 'input-xlarge'
+            = f.text_field :destination, :class => 'input-xlarge'
 
         .control-group
           = f.label :date, :class => 'control-label'

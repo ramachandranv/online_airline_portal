@@ -17,6 +17,10 @@
 
 var personTemplate = $("<div class='control-group'>Name: <input type='text' name='name'>Age: <input type='text' name='age'></div>");
 $(document).ready(function() {
+  $('#enquiry_airline_company').autocomplete({source: ['Indian Airlines', 'Air India', 'Kingfisher', 'Aerosource India Pvt Ltd']});
+  $('#enquiry_source').autocomplete({source: ['Chennai', 'Bangalore', 'Bombay', 'Delhi']});
+  $('#enquiry_destination').autocomplete({source: ['Chennai', 'Bangalore', 'Bombay', 'Delhi']});
+
   $('#enquiry_number_of_persons').blur(function(){
     $('.passenger_details_container .control-group').remove();
      for(var i=0; i< $(this).val(); i++) {
