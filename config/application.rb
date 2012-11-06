@@ -66,7 +66,7 @@ module OnlineAirlinePortal
     config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :user_name            => 'v.ramcool.ramachandran',
+      :user_name            => 'v.ramcool.ramachandran@gmail.com',
       :password             => 'impression',
       :authentication       => 'plain',
       :enable_starttls_auto => true  }
