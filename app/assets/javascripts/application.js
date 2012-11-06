@@ -22,8 +22,14 @@ $(document).ready(function() {
   $('#enquiry_destination').autocomplete({source: ['Chennai', 'Bangalore', 'Bombay', 'Delhi']});
 
   $('#enquiry_number_of_persons').blur(function(){
-    $('.passenger_details_container .control-group').remove();
-     for(var i=0; i< $(this).val(); i++) {
+     var count = 0;
+     var number_of_appended_divs = $('.passenger_details_container').find('.control-group').length; 
+     if (number_of_appended_divs > 0) {
+       count = $(this).val() - number_of_appended_divs;
+     } else {
+       count = $(this).val();
+     }
+     for(var i=0; i<count; i++) {
        $('.passenger_details_container').append(personTemplate.clone());
      }
      $('.passenger_details_container').show();
