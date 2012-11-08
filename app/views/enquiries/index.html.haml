@@ -7,14 +7,14 @@
 
 %table.table.table-striped
   %tr
-    %th Airline
+    %th Trip Type
     %th Source
     %th Destination
-    %th Date
+    %th Departure Date
   - if @enquiries.present?
     - @enquiries.each do |enquiry|
       %tr
-        %td= enquiry.airline_company
+        %td= enquiry.trip_type
         %td= enquiry.source
         %td= enquiry.destination
-        %td= enquiry.date
+        %td= enquiry.departure_date

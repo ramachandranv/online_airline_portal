@@ -14,15 +14,21 @@
 ActiveRecord::Schema.define(:version => 20121105183332) do
 
   create_table "enquiries", :force => true do |t|
-    t.string   "airline_company"
+    t.string   "trip_type"
     t.string   "source"
     t.string   "destination"
-    t.string   "date"
-    t.string   "number_of_persons"
+    t.string   "departure_date"
+    t.string   "return_date"
+    t.string   "adults"
+    t.string   "children"
+    t.string   "infants"
+    t.string   "class_of_travel"
+    t.string   "airline_preference"
+    t.string   "departure_time"
     t.text     "passenger_details"
     t.integer  "user_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -33,5 +39,7 @@ ActiveRecord::Schema.define(:version => 20121105183332) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

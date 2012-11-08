@@ -58,13 +58,18 @@
   margin-bottom: 0;
 }
 
-.enquiry_form_container {
+.dashboard {
+  width: 800px;
+  margin: 40px auto;
+}
+
+.main_container {
   top: auto;
   position: relative;
   left: auto;
   margin: 40px auto;
   max-width: 100%;
-  width: 600px;
+  width: 800px;
   background: #FFF;
   border: 1px solid #CCC;
   border-radius: 10px;
@@ -92,3 +97,30 @@
 .control-buttons {
   float: right;
 }
+
+#new_enquiry select, .passenger_details select {
+  width: auto;
+}
+
+#new_enquiry .source {
+  float: left;
+  width: 400px;
+}
+
+#new_enquiry .trip_type1, #new_enquiry .adults, #new_enquiry .children, #new_enquiry .class_of_travel, #new_enquiry .airline_preference {
+  float: left;
+  width: 260px;
+}
+
+.alert, .alert-error, .passenger_details h3 {
+  text-align: center;
+}
+
+#continue_button, #submit_button {
+  text-align: center
+}
+
+.passenger_details select, .passenger_details input {
+  margin: 10px;
+}
+

@@ -1,38 +1,77 @@
-.enquiry_form_container
-  .form_container
-    .form-header
-      %h3 Enquiry Form
-    = form_for @enquiry, :method => 'post', :html => {:class => 'form-horizontal enquiry-form'} do |f|
-      .form-body
-        .control-group
-          = f.label :airline_company, :class => 'control-label'
+.main_container
+  .enquiry_form_container#accordion
+    %h3 Enquiry Form - Booking Details
+    .enquiry_form
+      .alert-error
+      = form_for @enquiry, :method => 'post', :html => {:class => 'enquiry-form'} do |f|
+        .control-group.trip_type1
           .controls
-            = f.text_field :airline_company, :class => 'input-xlarge'
+            = f.radio_button :trip_type, 'One way', :checked => true
+            One way
+        .control-group.trip_type2
+          .controls
+            = f.radio_button :trip_type, 'Round trip'
+            Round trip
 
-        .control-group
-          = f.label :source, :class => 'control-label'
+        .control-group.source
+          = f.label :source, "Source*", :class => 'control-label'
           .controls
             = f.text_field :source, :class => 'input-xlarge'
 
-        .control-group
-          = f.label :destination, :class => 'control-label'
+        .control-group.destination
+          = f.label :destination, "Destination*", :class => 'control-label'
           .controls
             = f.text_field :destination, :class => 'input-xlarge'
 
-        .control-group
-          = f.label :date, :class => 'control-label'
+        .control-group.departure_date
+          = f.label :departure_date, "Departure date*", :class => 'control-label'
           .controls
-            = f.text_field :date, :class => 'input-xlarge'
+            = f.text_field :departure_date
 
-        .control-group
-          = f.label :number_of_persons, :class => 'control-label'
+        .control-group.return_date.hide
+          = f.label :return_date, "Return date*", :class => 'control-label'
           .controls
-            = f.text_field :number_of_persons, :class => 'input-xlarge'
-            = f.hidden_field :passenger_details
+            = f.text_field :return_date
 
-      .passenger_details_container.hide
-        %h4 Passenger Details
+        .control-group.adults
+          = f.label :adults, "Adults (above 12 yrs)", :class => 'control-label'
+          .controls
+            = f.select :adults, options_for_select([1,2,3,4,5,6,7,8,9])
 
-      .form-footer
-        = button_tag "Submit Enquiry", :type => 'button', :class => 'btn btn-large btn-success submit_enquiry_form'
+        .control-group.children
+          = f.label :children, "Children (2-12 yrs)", :class => 'control-label'
+          .controls
+            = f.select :children, options_for_select([0,1,2,3,4,5,6,7])
 
+        .control-group.infants
+          = f.label :infants, "Infants (under 2 yrs)", :class => 'control-label'
+          .controls
+            = f.select :infants, options_for_select([0,1,2])
+
+        .control-group.class_of_travel
+          = f.label :class_of_travel, :class => 'control-label'
+          .controls
+            = f.select :class_of_travel, options_for_select(['Economy', 'Business', 'First', 'Premium Economy'])
+
+        .control-group.airline_preference
+          = f.label :airline_preference, :class => 'control-label'
+          .controls
+            = f.text_field :airline_preference
+
+        .control-group.departure_time
+          = f.label :departure_time, :class => 'control-label'
+          .controls
+            = f.select :departure_time, options_for_select(['Any time', 'Around 2am', 'Around 6am', 'Around 10am', 'Around 2pm', 'Around 6pm', 'Around 10pm'])
+        
+        .control-group#continue_button
+          = button_tag "Continue", :type => 'button', :class => 'btn btn-primary continue_enquiry_form'
+
+    %h3 Enquiry Form - Passenger Details
+    .passenger_details_container
+      .passenger_details
+        %h3
+        .alert-error
+        #adults
+        #children
+        #infants
+        #submit_button

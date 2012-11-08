@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user_authorized.id
       redirect_to user_dashboard_path, :notice => "Signed in successfully"
     else
-      render 'new', :notice => "Email/password is incorrect"
+      flash.now[:alert] = "Invalid Email/Password"
+      render 'new'
     end
   end
 
