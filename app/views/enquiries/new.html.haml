@@ -26,12 +26,12 @@
         .control-group.departure_date
           = f.label :departure_date, "Departure date*", :class => 'control-label'
           .controls
-            = f.text_field :departure_date
+            = f.text_field :departure_date, :placeholder => "dd-mm-yy"
 
         .control-group.return_date.hide
           = f.label :return_date, "Return date*", :class => 'control-label'
           .controls
-            = f.text_field :return_date
+            = f.text_field :return_date, :placeholder => "dd-mm-yy"
 
         .control-group.adults
           = f.label :adults, "Adults (above 12 yrs)", :class => 'control-label'
@@ -62,6 +62,11 @@
           = f.label :departure_time, :class => 'control-label'
           .controls
             = f.select :departure_time, options_for_select(['Any time', 'Around 2am', 'Around 6am', 'Around 10am', 'Around 2pm', 'Around 6pm', 'Around 10pm'])
+        
+        .control-group.return_time.hide
+          = f.label :return_time, :class => 'control-label'
+          .controls
+            = f.select :return_time, options_for_select(['Any time', 'Around 2am', 'Around 6am', 'Around 10am', 'Around 2pm', 'Around 6pm', 'Around 10pm'])
         
         .control-group#continue_button
           = button_tag "Continue", :type => 'button', :class => 'btn btn-primary continue_enquiry_form'

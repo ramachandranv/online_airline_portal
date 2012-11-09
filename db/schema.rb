@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20121109115740) do
     t.string   "class_of_travel"
     t.string   "airline_preference"
     t.string   "departure_time"
+    t.string   "return_time"
     t.text     "passenger_details"
     t.integer  "user_id"
     t.datetime "created_at",         :null => false

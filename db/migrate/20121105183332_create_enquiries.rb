@@ -12,6 +12,7 @@ class CreateEnquiries < ActiveRecord::Migration
       t.string :class_of_travel
       t.string :airline_preference
       t.string :departure_time
+      t.string :return_time
       t.text   :passenger_details
       t.references :user
 

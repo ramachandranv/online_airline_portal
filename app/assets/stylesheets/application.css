@@ -69,7 +69,7 @@
   left: auto;
   margin: 40px auto;
   max-width: 100%;
-  width: 800px;
+  width: 860px;
   background: #FFF;
   border: 1px solid #CCC;
   border-radius: 10px;
@@ -104,12 +104,17 @@
 
 #new_enquiry .source {
   float: left;
-  width: 400px;
+  width: 460px;
 }
 
-#new_enquiry .trip_type1, #new_enquiry .adults, #new_enquiry .children, #new_enquiry .class_of_travel, #new_enquiry .airline_preference {
+#new_enquiry .trip_type1, #new_enquiry .adults, #new_enquiry .children  {
   float: left;
-  width: 260px;
+  width: 300px;
+}
+
+#new_enquiry .class_of_travel, #new_enquiry .airline_preference  {
+  float: left;
+  width: 220px;
 }
 
 .alert, .alert-error, .passenger_details h3 {
@@ -126,4 +131,8 @@
 
 #enquiry_departure_date, #enquiry_return_date {
   width: 120px;
+}
+
+#enquiry_airline_preference {
+  width: 180px;
 }

@@ -105,7 +105,11 @@ $(document).ready(function() {
     } 
   });
 
-  $('#accordion').accordion({disabled: true});
+  $("#accordion").accordion({disabled: true, active: 0});
+
+  $("#accordion h3:first").click(function() {
+    $('#accordion').accordion({active: 0});
+  }); 
 
   $('.continue_enquiry_form').click(function() {
     if ($("#enquiry_source").val() == "" || $("#enquiry_destination").val() == "" || $("#enquiry_departure_date").val() == "" || ($("#enquiry_trip_type_round_trip").is(':checked') && $("#enquiry_return_date").val() == "")) {
@@ -117,9 +121,8 @@ $(document).ready(function() {
     else {
       var adult_template_count = $("#adults .adult").length;
       $(".enquiry_form .alert-error").html("").removeClass("error");
-      //$(this).attr('disabled', true);
 
-      $(".passenger_details h3").html($("#enquiry_source").val()+" -------> "+$("#enquiry_destination").val());
+      $(".passenger_details h3").html($("#enquiry_source").val().split(" ")[0]+" -------> "+$("#enquiry_destination").val().split(" ")[0]);
 
       if (adult_template_count == 0) {
         $('#adults').append(adultTemplate.clone().find('.controls').prepend('Adult 1'));
@@ -129,24 +132,31 @@ $(document).ready(function() {
         $('#submit_button').append("<input type='button' class='submit_enquiry_form btn btn-success' value='Submit Enquiry'>")
       }
 
-      $('#accordion').accordion({disabled: false, active: 1});
+      $('#accordion').accordion({active: 1});
     }
   });
 
-  $('#enquiry_departure_date').datepicker();
-  $('#enquiry_return_date').datepicker();
+  $('#enquiry_departure_date').datepicker({dateFormat: "dd-mm-yy", minDate: 0});
+  $('#enquiry_return_date').datepicker({dateFormat: "dd-mm-yy", beforeShow: function() { 
+								var d=$("#enquiry_departure_date").datepicker('getDate');
+								if(d) return {minDate: d}
+								} });
 
   $('#enquiry_trip_type_round_trip').click(function() {
     if($(this).is(':checked')) {
       $('.return_date').show();
-      $('.departure_date').css({'float': 'left', width: '400px'});
+      $('.return_time').show();
+      $('.departure_date').css({'float': 'left', width: '460px'});
+      $('.departure_time').css({'float': 'left', width: '180px'});
     }
   });
 
   $('#enquiry_trip_type_one_way').click(function() {
     if($(this).is(':checked')) {
       $('.return_date').hide();
+      $('.return_time').hide();
       $('.departure_date').css({'float': 'none'});
+      $('.departure_time').css({'float': 'none', width: 'auto'});
     }
   }); 
 

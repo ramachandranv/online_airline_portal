@@ -5,38 +5,41 @@ Hi,
 
 .booking_information
   %h4 Booking Information
-  %p
-    %b Trip type :
-    = @enquiry.trip_type
-  %p
-    %b Source : 
-    = @enquiry.source
-    %b Destination :
-    = @enquiry.destination
-  %p
-    %b Departure date :
-    = @enquiry.departure_date
-    - if @enquiry.return_date.present?
-      %b Return date :
-      = @enquiry.return_date
-  %p
-    %b Adults : 
-    = @enquiry.adults
-    %b Childs : 
-    = @enquiry.children
-    %b Infants :
-    = @enquiry.infants
-  %p
-    %b Class of travel :
-    = @enquiry.class_of_travel
-    %b Airline preference :
-    = @enquiry.airline_preference || "None"
-    %b Departure time :
-    = @enquiry.departure_time
+  %table
+    %tr
+      %th Trip type
+      %th Source
+      %th Destination
+      %th Departure date
+      %th Return date
+    %tr
+      %td= @enquiry.trip_type
+      %td= @enquiry.source
+      %td= @enquiry.destination
+      %td= @enquiry.departure_date
+      %td= @enquiry.return_date
 
+  %table
+    %tr
+      %th Adults
+      %th Children
+      %th Infants
+      %th Class of travel
+      %th Airline
+      %th Departure Time
+      %th Return Time
+    %tr
+      %td= @enquiry.adults
+      %td= @enquiry.children
+      %td= @enquiry.infants
+      %td= @enquiry.class_of_travel
+      %td= @enquiry.airline_preference
+      %td= @enquiry.departure_time
+      %td= @enquiry.return_time
+ 
 .passenger_information
   %h4 Passenger Information
-  %table{:border => "1px", "border-spacing" => 0, "border-collapse" => "collapse"}
+  %table
     %tr
       %th Person type
       %th Title

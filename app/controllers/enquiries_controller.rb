@@ -9,6 +9,7 @@ class EnquiriesController < ApplicationController
   end
 
   def create
+    params[:enquiry][:return_time] = "" if (params[:enquiry][:trip_type] == "One way")
     @enquiry = current_user.enquiries.build(params[:enquiry])
     passenger_details = []
     params[:passenger_details].each do |passenger|
