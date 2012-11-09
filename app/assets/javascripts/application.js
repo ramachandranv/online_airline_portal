@@ -15,9 +15,9 @@
 //= require twitter/bootstrap
 //= require_tree .
 
-var adultTemplate = $("<div class='control-group'><div class='controls adult'>&nbsp;&nbsp;<input type='hidden' name='person' value='adult'><select name='title' class='title'><option>Title</option><option>Mr</option><option>Ms</option><option>Mrs</option></select><input type='text' name='first_name' placeholder='First Name'><input type='text' name='last_name' placeholder='Last Name'></div></div>");
-var childTemplate = $("<div class='control-group'><div class='controls child'>&nbsp;&nbsp;<input type='hidden' name='person' value='child'> <select name='title' class='title'><option>Title</option><option>Miss</option><option>Mstr</option></select><input type='text' name='first_name' placeholder='First Name'><input type='text' name='last_name' placeholder='Last Name'></div></div>");
-var infantTemplate = $("<div class='control-group'><div class='controls infant'><input type='hidden' name='person' value='infant'><select name='title' class='title'><option>Title</option><option>Miss</option><option>Mstr</option></select><input type='text' name='first_name' placeholder='First Name'><input type='text' name='last_name' placeholder='Last Name'></div></div>");
+var adultTemplate = $("<div class='control-group'><div class='controls adult'>&nbsp;&nbsp;<input type='hidden' name='person' value='Adult'><select name='title' class='title'><option>Title</option><option>Mr</option><option>Ms</option><option>Mrs</option></select><input type='text' name='first_name' placeholder='First Name'><input type='text' name='last_name' placeholder='Last Name'></div></div>");
+var childTemplate = $("<div class='control-group'><div class='controls child'>&nbsp;&nbsp;<input type='hidden' name='person' value='Child'> <select name='title' class='title'><option>Title</option><option>Miss</option><option>Mstr</option></select><input type='text' name='first_name' placeholder='First Name'><input type='text' name='last_name' placeholder='Last Name'></div></div>");
+var infantTemplate = $("<div class='control-group'><div class='controls infant'><input type='hidden' name='person' value='Infant'><select name='title' class='title'><option>Title</option><option>Miss</option><option>Mstr</option></select><input type='text' name='first_name' placeholder='First Name'><input type='text' name='last_name' placeholder='Last Name'></div></div>");
 var passengers = []; 
 var error_message = "";
 

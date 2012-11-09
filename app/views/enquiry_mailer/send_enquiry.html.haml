@@ -1,15 +1,55 @@
-Dear "#{@enquiry.airline_company}"
+Hi,
 
 %p
-  Here is the booking enquiry for the following details
+  The following is the enquiry for airline booking.
 
-%ul
-  %li= "Airline : #{@enquiry.airline_company}"
-  %li= "Source : #{@enquiry.source}"
-  %li= "Destination : #{@enquiry.destination}"
-  %li= "Date : #{@enquiry.date}"
-  %li= "Number of passengers : #{@enquiry.number_of_persons}"
+.booking_information
+  %h4 Booking Information
+  %p
+    %b Trip type :
+    = @enquiry.trip_type
+  %p
+    %b Source : 
+    = @enquiry.source
+    %b Destination :
+    = @enquiry.destination
+  %p
+    %b Departure date :
+    = @enquiry.departure_date
+    - if @enquiry.return_date.present?
+      %b Return date :
+      = @enquiry.return_date
+  %p
+    %b Adults : 
+    = @enquiry.adults
+    %b Childs : 
+    = @enquiry.children
+    %b Infants :
+    = @enquiry.infants
+  %p
+    %b Class of travel :
+    = @enquiry.class_of_travel
+    %b Airline preference :
+    = @enquiry.airline_preference || "None"
+    %b Departure time :
+    = @enquiry.departure_time
 
+.passenger_information
+  %h4 Passenger Information
+  %table{:border => "1px", "border-spacing" => 0, "border-collapse" => "collapse"}
+    %tr
+      %th Person type
+      %th Title
+      %th First name
+      %th Last name
+    - @enquiry.passenger_details.each do |passenger|
+      %tr
+        %td= passenger['person_type']
+        %td= passenger['title']
+        %td= passenger['first_name']
+        %td= passenger['last_name']
+
+  
 %p
   Thanks & Regards
   %br
