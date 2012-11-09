@@ -124,3 +124,6 @@
   margin: 10px;
 }
 
+#enquiry_departure_date, #enquiry_return_date {
+  width: 120px;
+}

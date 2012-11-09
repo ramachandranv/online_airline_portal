@@ -22,9 +22,32 @@ var passengers = [];
 var error_message = "";
 
 $(document).ready(function() {
-  $('#enquiry_airline_company').autocomplete({source: ['Indian Airlines', 'Air India', 'Kingfisher', 'Aerosource India Pvt Ltd']});
-  $('#enquiry_source').autocomplete({source: ['Chennai', 'Bangalore', 'Bombay', 'Delhi']});
-  $('#enquiry_destination').autocomplete({source: ['Chennai', 'Bangalore', 'Bombay', 'Delhi']});
+  $("#enquiry_source").keyup(function() {
+    $.ajax({
+      url: '/get_cities',
+      data: {city: $(this).val()}
+    }).done(function(data) {
+      $("#enquiry_source").autocomplete({source: data});
+    });
+  });
+
+  $("#enquiry_destination").keyup(function() {
+    $.ajax({
+      url: '/get_cities',
+      data: {city: $(this).val()}
+    }).done(function(data) {
+      $("#enquiry_destination").autocomplete({source: data});
+    });
+  });
+
+  $("#enquiry_airline_preference").keyup(function() {
+    $.ajax({
+      url: '/get_airlines',
+      data: {airline: $(this).val()}
+    }).done(function(data) {
+      $("#enquiry_airline_preference").autocomplete({source: data});
+    });
+  }); 
 
   $("#enquiry_adults").change(function() {
     var adults_count = $('#enquiry_adults').val();
@@ -86,8 +109,12 @@ $(document).ready(function() {
 
   $('.continue_enquiry_form').click(function() {
     if ($("#enquiry_source").val() == "" || $("#enquiry_destination").val() == "" || $("#enquiry_departure_date").val() == "" || ($("#enquiry_trip_type_round_trip").is(':checked') && $("#enquiry_return_date").val() == "")) {
-      $(".enquiry_form .alert-error").html("Please fill in the mandatory fields Source, Destination, Departure Date and Return Date(if round trip)").addClass("error");
-    } else {
+      $(".enquiry_form .alert-error").html("Please fill in the mandatory fields Source, Destination, Departure Date and Return Date(for round trip)").addClass("error");
+    } 
+    else if($("#enquiry_source").val() == $("#enquiry_destination").val()){
+      $(".enquiry_form .alert-error").html("Please select a destination that is different from source").addClass("error");
+    }
+    else {
       var adult_template_count = $("#adults .adult").length;
       $(".enquiry_form .alert-error").html("").removeClass("error");
       //$(this).attr('disabled', true);

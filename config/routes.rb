@@ -11,13 +11,17 @@ OnlineAirlinePortal::Application.routes.draw do
 
   post '/sessions' => "sessions#create"
 
-  get "/dashboard" => "home#dashboard", :as => :user_dashboard
+  get "/home" => "home#dashboard", :as => :user_dashboard
 
   match '/users/signout' => "sessions#destroy", :as => :destroy_session
 
   resources :users
 
   resources :enquiries
+
+  match "/get_cities" => "home#get_cities", :as => :get_cities
+
+  match "/get_airlines" => "home#get_airlines", :as => :get_airlines
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
