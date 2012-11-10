@@ -1,7 +1,7 @@
 Hi,
 
 %p
-  The following is the enquiry for airline booking.
+  The following are the details for an airline enquiry.
 
 .booking_information
   %h4{:style => "text-align: center"} Booking Information
@@ -54,6 +54,8 @@ Hi,
         %td= passenger['first_name']
         %td= passenger['last_name']
 
+%p 
+  Kindly reply with the availability of the airline for the above booking details to this mail - #{@user.email}
   
 %p
   Thanks & Regards

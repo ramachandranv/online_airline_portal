@@ -69,8 +69,8 @@ module OnlineAirlinePortal
       :address              => "smtp.gmail.com",
       :port                 => 587,
       :domain               => 'gmail.com',
-      :user_name            => 'v.ramcool.ramachandran@gmail.com',
-      :password             => 'tuxworld',
+      :user_name            => 'notifymailer@gmail.com',
+      :password             => 'notify#86',
       :authentication       => 'plain',
       :enable_starttls_auto => true  }
      
