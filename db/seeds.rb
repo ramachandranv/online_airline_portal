@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 puts "We have started seeding the data to the database. Please be patient."
-file = File.open(Rails.root.join("tmp", "airports_list"), "r")
+file = File.open(Rails.root.join("public", "airports_list"), "r")
 airports = []
 file.each do |line|
   unless (line == "\n")
@@ -20,13 +20,13 @@ end
 puts "Started seeding cities"
 cities = City.create(airports)
 
-file1 = File.open(Rails.root.join("tmp", "airlines_list"), "r")
+file1 = File.open(Rails.root.join("public", "airlines_list"), "r")
 airlines = []
 file1.each do |airport|
   airlines << {name: "#{airport.chomp}"}
 end
+puts "Done!"
 
 puts "Started seeding airlines"
 airlines = Airline.create(airlines)
-
-puts "Done!"
+puts "Done!!"
