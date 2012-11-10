@@ -23,29 +23,38 @@ var error_message = "";
 
 $(document).ready(function() {
   $("#enquiry_source").keyup(function() {
+    $(this).parent().find("img").remove();
+    $(this).parent().append("<img src='/assets/loading.gif' width='25px' height='25px' style='margin-top: -10px'>");
     $.ajax({
       url: '/get_cities',
       data: {city: $(this).val()}
     }).done(function(data) {
       $("#enquiry_source").autocomplete({source: data});
+      $("#enquiry_source").parent().find("img").remove();
     });
   });
 
   $("#enquiry_destination").keyup(function() {
+    $(this).parent().find("img").remove();
+    $(this).parent().append("<img src='/assets/loading.gif' width='25px' height='25px' style='margin-top: -10px'>");
     $.ajax({
       url: '/get_cities',
       data: {city: $(this).val()}
     }).done(function(data) {
       $("#enquiry_destination").autocomplete({source: data});
+      $("#enquiry_destination").parent().find("img").remove();
     });
   });
 
   $("#enquiry_airline_preference").keyup(function() {
+    $(this).parent().find("img").remove();
+    $(this).parent().append("<img src='/assets/loading.gif' width='15px' height='15px' style='margin-top: -10px'>");
     $.ajax({
       url: '/get_airlines',
       data: {airline: $(this).val()}
     }).done(function(data) {
       $("#enquiry_airline_preference").autocomplete({source: data});
+      $("#enquiry_airline_preference").parent().find("img").remove();
     });
   }); 
 

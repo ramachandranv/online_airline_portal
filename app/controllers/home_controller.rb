@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   end
 
   def get_cities
-    cities = City.where(['name like ?', "%#{params[:city]}%"])
+    cities = City.where(['lower(name) like ?', "%#{params[:city].downcase}%"])
     cities_array = []
     cities.each do |city|
       cities_array << city.name
@@ -12,7 +12,7 @@ class HomeController < ApplicationController
   end
 
   def get_airlines
-    airlines = Airline.where(['name like ?', "%#{params[:airline]}%"])
+    airlines = Airline.where(['lower(name) like ?', "%#{params[:airline].downcase}%"])
     airlines_array = []
     airlines.each do |airline|
       airlines_array << airline.name
