@@ -24,4 +24,8 @@ class EnquiriesController < ApplicationController
       render 'new'
     end
   end
+
+  def show
+    @enquiry = Enquiry.find(params[:id])
+  end
 end

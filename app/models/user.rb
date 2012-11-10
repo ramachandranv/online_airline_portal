@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password
 
   validates_presence_of :email, :password
+  validates :password, :length => { :in => 6..24 } 
 
   before_save :encrypt_password
 

@@ -9,31 +9,22 @@
 %table.table.table-striped
   %tr
     %th Trip type
-    %th Source
-    %th Destination
+    %th{:style => "width: 300px"} Source
+    %th{:style => "width: 300px"} Destination
     %th Departure date
     %th Return date
-    -#%th Adults
-    -#%th Children
-    -#%th Infants
-    -#%th Class of travel
-    -#%th Airline
-    -#%th Departure time
-    -#%th Return time
+    %th{:style => "width: 100px"} Controls
   - if @enquiries.present?
     - @enquiries.each do |enquiry|
       %tr
         %td= enquiry.trip_type
-        %td= enquiry.source
-        %td= enquiry.destination
+        %td{:style => "width: 300px"}
+          = enquiry.source
+        %td{:style => "width: 300px"}
+          = enquiry.destination
         %td= enquiry.departure_date.strftime("%d-%m-%Y")
         %td
           - if enquiry.return_date.present?
             = enquiry.return_date.strftime("%d-%m-%Y")
-        -#%td= enquiry.adults
-        -#%td= enquiry.children
-        -#%td= enquiry.infants
-        -#%td= enquiry.class_of_travel
-        -#%td= enquiry.airline_preference
-        -#%td= enquiry.departure_time
-        -#%td= enquiry.return_time
+        %td{:style => "width: 100px"}
+          = link_to "View more", "/enquiries/#{enquiry.id}", :class => 'btn'

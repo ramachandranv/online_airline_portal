@@ -136,3 +136,16 @@
 #enquiry_airline_preference {
   width: 180px;
 }
+
+.booking_information h3, .passenger_information h3 {
+  text-align: center;
+}
+
+.booking_information .first_half_details {
+  width: 600px;
+} 
+
+.booking_information .first_half_details {
+  float: left;
+  margin-right: 40px;
+}

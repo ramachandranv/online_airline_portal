@@ -1,0 +1,83 @@
+- @content_for_title = "Enquiry Details"
+.enquiry_details
+  .control-buttons
+    = link_to "Create Enquiry", new_enquiry_path, :class => 'btn btn-primary'
+  %h2
+    Enquiries Details
+  %hr
+
+.booking_information
+  %h3 Booking Details
+  .first_half_details
+    %p 
+      %b Trip :
+      = @enquiry.trip_type
+    %br/
+
+    %p
+      %b Source :
+      = @enquiry.source
+    %br/
+
+    %p
+      %b Destination :
+      = @enquiry.destination
+    %br/
+
+    %p
+      %b Departure date :
+      = @enquiry.departure_date.strftime("%d-%m-%Y")
+    %br/
+
+    - if @enquiry.return_date.present?
+      %p
+        %b Return date :
+        = @enquiry.return_date.strftime("%d-%m-%Y")
+
+  .second_half_details
+    %p
+      %b Adults :
+      = @enquiry.adults
+      %b Children :
+      = @enquiry.children
+      %b Infants :
+      = @enquiry.adults
+    %br/
+
+    %p
+      %b Class of travel :
+      = @enquiry.class_of_travel
+    %br/
+
+    %p
+      %b Airline preference :
+      = @enquiry.airline_preference
+    %br/
+
+    %p
+      %b Departure time :
+      = @enquiry.departure_time
+    %br/
+
+    - if @enquiry.return_time.present?
+      %p
+        %b Return time :
+        = @enquiry.return_time
+      %br/
+
+%br/
+%hr/
+.passenger_information
+  %h3 Passenger Details
+  %table.table.table-striped
+    %tr
+      %th Person type
+      %th Title
+      %th First name
+      %th Last name
+    - @enquiry.passenger_details.each do |passenger|
+      %tr
+        %td= passenger["person_type"]
+        %td= passenger["title"]
+        %td= passenger["first_name"]
+        %td= passenger["last_name"]
