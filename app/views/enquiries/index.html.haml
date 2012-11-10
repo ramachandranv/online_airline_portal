@@ -1,3 +1,4 @@
+- @content_for_title = "Enquiries"
 .enquiries
   .control-buttons
     = link_to "Create Enquiry", new_enquiry_path, :class => 'btn btn-primary'
@@ -7,14 +8,32 @@
 
 %table.table.table-striped
   %tr
-    %th Trip Type
+    %th Trip type
     %th Source
     %th Destination
-    %th Departure Date
+    %th Departure date
+    %th Return date
+    -#%th Adults
+    -#%th Children
+    -#%th Infants
+    -#%th Class of travel
+    -#%th Airline
+    -#%th Departure time
+    -#%th Return time
   - if @enquiries.present?
     - @enquiries.each do |enquiry|
       %tr
         %td= enquiry.trip_type
         %td= enquiry.source
         %td= enquiry.destination
-        %td= enquiry.departure_date
+        %td= enquiry.departure_date.strftime("%d-%m-%Y")
+        %td
+          - if enquiry.return_date.present?
+            = enquiry.return_date.strftime("%d-%m-%Y")
+        -#%td= enquiry.adults
+        -#%td= enquiry.children
+        -#%td= enquiry.infants
+        -#%td= enquiry.class_of_travel
+        -#%td= enquiry.airline_preference
+        -#%td= enquiry.departure_time
+        -#%td= enquiry.return_time

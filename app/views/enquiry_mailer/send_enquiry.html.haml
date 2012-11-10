@@ -4,8 +4,8 @@ Hi,
   The following is the enquiry for airline booking.
 
 .booking_information
-  %h4 Booking Information
-  %table
+  %h4{:style => "text-align: center"} Booking Information
+  %table{:border => "1px", :style => "border-collapse: collapse; text-align: center; width: 800px; margin: 20px auto;"} 
     %tr
       %th Trip type
       %th Source
@@ -16,10 +16,12 @@ Hi,
       %td= @enquiry.trip_type
       %td= @enquiry.source
       %td= @enquiry.destination
-      %td= @enquiry.departure_date
-      %td= @enquiry.return_date
+      %td= @enquiry.departure_date.strftime("%d-%m-%Y")
+      %td
+        - if @enquiry.return_date.present? 
+          = @enquiry.return_date.strftime("%d-%m-%Y") 
 
-  %table
+  %table{:border => "1px", :style => "border-collapse: collapse; text-align: center; width: 600px; margin: 20px auto;"} 
     %tr
       %th Adults
       %th Children
@@ -38,8 +40,8 @@ Hi,
       %td= @enquiry.return_time
  
 .passenger_information
-  %h4 Passenger Information
-  %table
+  %h4{:style => "text-align: center"} Passenger Information
+  %table{:border => "1px", :style => "border-collapse: collapse; text-align: center; width: 400px; margin: 20px auto;"}
     %tr
       %th Person type
       %th Title
