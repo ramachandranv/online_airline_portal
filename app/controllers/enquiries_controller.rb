@@ -1,7 +1,7 @@
 class EnquiriesController < ApplicationController
   before_filter :authenticate_user!
   def index
-    @enquiries = current_user.enquiries.order('created_at DESC')
+    @enquiries = current_user.enquiries.order('created_at DESC').page(params[:page]).per(5)
   end
 
   def new

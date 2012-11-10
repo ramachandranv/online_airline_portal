@@ -28,3 +28,5 @@
             = enquiry.return_date.strftime("%d-%m-%Y")
         %td{:style => "width: 100px"}
           = link_to "View more", "/enquiries/#{enquiry.id}", :class => 'btn'
+
+= paginate @enquiries

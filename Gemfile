@@ -13,6 +13,7 @@ gem 'haml'
 gem 'haml-rails'
 gem "less-rails"  
 gem 'twitter-bootstrap-rails'
+gem 'kaminari'
 
 group :development, :test do
   gem 'mysql2'

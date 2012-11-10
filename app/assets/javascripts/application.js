@@ -29,8 +29,8 @@ $(document).ready(function() {
       url: '/get_cities',
       data: {city: $(this).val()}
     }).done(function(data) {
-      $("#enquiry_source").autocomplete({source: data});
       $("#enquiry_source").parent().find("img").remove();
+      $("#enquiry_source").autocomplete({source: data});
     });
   });
 
@@ -41,8 +41,8 @@ $(document).ready(function() {
       url: '/get_cities',
       data: {city: $(this).val()}
     }).done(function(data) {
-      $("#enquiry_destination").autocomplete({source: data});
       $("#enquiry_destination").parent().find("img").remove();
+      $("#enquiry_destination").autocomplete({source: data});
     });
   });
 
@@ -53,8 +53,8 @@ $(document).ready(function() {
       url: '/get_airlines',
       data: {airline: $(this).val()}
     }).done(function(data) {
-      $("#enquiry_airline_preference").autocomplete({source: data});
       $("#enquiry_airline_preference").parent().find("img").remove();
+      $("#enquiry_airline_preference").autocomplete({source: data});
     });
   }); 
 
@@ -132,6 +132,10 @@ $(document).ready(function() {
       $(".enquiry_form .alert-error").html("").removeClass("error");
 
       $(".passenger_details h3").html($("#enquiry_source").val().split(" ")[0]+" -------> "+$("#enquiry_destination").val().split(" ")[0]);
+
+      if ($("#enquiry_trip_type_round_trip").is(':checked')) {
+        $(".passenger_details h3").html($("#enquiry_destination").val().split(" ")[0]+" <-------> "+$("#enquiry_source").val().split(" ")[0]);
+      }
 
       if (adult_template_count == 0) {
         $('#adults').append(adultTemplate.clone().find('.controls').prepend('Adult 1'));

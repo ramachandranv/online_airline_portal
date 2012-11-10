@@ -10,6 +10,8 @@ class Enquiry < ActiveRecord::Base
 
   belongs_to :user
 
+  paginates_per 5
+
   def departure_return_date
     if (self.trip_type == "Round trip") and (self.departure_date > self.return_date)
       errors.add(:return_date, "Return date cannot be less than Departure date")
